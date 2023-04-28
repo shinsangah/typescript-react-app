@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Todo from "./components/Todo";
+import Header from "./components/Header";
 // import ParentProps from "./components/ParentProps";
 // import Counter from "./components/Counter";
 // import Input from "./components/Input";
@@ -13,7 +14,8 @@ function App() {
       {/* <Input /> */}
       {/* <ChangeColor /> */}
       {/* <ParentProps /> */}
-      <Todo />
+      <Header />
+      {/* <Todo /> */}
     </div>
   );
 }
