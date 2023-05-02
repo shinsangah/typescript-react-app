@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Tail() {
+  const [toggle, setToggle] = useState<boolean>(false);
+
+  const toggleMenu = (): void => {
+    setToggle((cur: boolean) => !cur);
+  };
+
   return (
     <nav className="w-auto pl-10 pr-10 bg-slate-300 ">
       <div className="flex justify-between py-3">
@@ -21,32 +27,32 @@ export default function Tail() {
             </svg>
             SANGAH
           </li>
-          <li className="py-2 font-semibold cursor-pointer text-slate-500">
+          <li className="hidden md:block py-2 font-semibold cursor-pointer text-slate-500">
             Menu1
           </li>
-          <li className="py-2 font-semibold cursor-pointer text-slate-500">
+          <li className="hidden md:block py-2 font-semibold cursor-pointer text-slate-500">
             Menu2
           </li>
-          <li className="py-2 font-semibold cursor-pointer text-slate-500">
+          <li className="hidden md:block py-2 font-semibold cursor-pointer text-slate-500">
             Menu3
           </li>
         </ul>
         <a
           href="#"
-          className="py-2 px-3 text-white font-bold bg-orange-500 hover:bg-slate-600 rounded transition-duration-300"
+          className="hidden md:block py-2 px-3 text-white font-bold bg-gray-500 hover:bg-slate-600 rounded transition-duration-300"
         >
           Login
         </a>
 
         {/* 모바일 메뉴 파트 */}
         <div className="md:hidden flex items-center">
-          <button>
+          <button onClick={toggleMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              className="w-6 h-6 mr-2 text-orange-600"
+              className="w-6 h-6 mr-2 text-gray-600"
             >
               <path
                 strokeLinecap="round"
@@ -60,7 +66,7 @@ export default function Tail() {
       </div>
 
       {/* 모바일 토글 파트 */}
-      <div className="md:hidden py-3">
+      <div className={toggle ? "md:hidden py-3" : "hidden py-3"}>
         <a href="#" className="block py-2 px-4 hover:bg-slate-200">
           Menu1
         </a>
